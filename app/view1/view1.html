@@ -1,0 +1,29 @@
+<p><Strong>Custom CSV Processor</Strong></p>
+<div class="wrap" ng-controller="CSVDataController">
+    <div class="floatleft">
+        <p><strong>Enter the URL for the file</strong></p>
+        <input type="text" ng-model="url">
+        <p><strong>Enter the columns to be processed</strong></p>
+        <input type="text" ng-model="columnSelectors"> <br/>
+        <div style="text-align:center">
+            <button class='myButton' ng-click='callService(url,columnSelectors)'><strong>Process</strong></button>
+        </div>
+    </div>
+    <div class="floatright">
+    <table>
+        <tr ng-repeat="item in data">
+            <td>{{item.IP}}</td>
+            <td>{{item.country}}</td>
+            <td>{{item.ISP}}</td>
+            <td>
+                <ul>
+                    <li ng-repeat="column in item.columns">
+                        {{column}}
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    </div>
+    <strong>Note: Save the CSV file in the project in the utils folder '\CSVParser\app\utils' folder and access it via URL as '/utils/tmp-out.csv'</strong>
+</div>
